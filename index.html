@@ -4,7 +4,575 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoalStone - Level Up Your Money Skills!</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #00cec9;
+            --accent: #fd79a8;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --danger: #d63031;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(108, 94, 231, 0.05) 0%, rgba(108, 94, 231, 0.05) 90%),
+                linear-gradient(to bottom, #f5f6fa, #ffffff);
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        #loginBtn {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #loginBtn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 94, 231, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5rem 5% 7rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 94, 231, 0.1) 0%, rgba(108, 94, 231, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #636e72;
+        }
+
+        #signupBtn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(108, 94, 231, 0.3);
+        }
+
+        #signupBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 94, 231, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            text-align: center;
+            background-color: white;
+            border-radius: 30px 30px 0 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .feature-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: #636e72;
+        }
+
+        /* New Features Sections */
+        .calculator-section, .tracker-section, .simulator-section, .leaderboard-section {
+            padding: 5rem 5%;
+            background-color: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .calculator-container, .simulator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 94, 231, 0.3);
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f0f8ff;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .progress-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .progress-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
+        }
+
+        .leaderboard {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .leaderboard th, .leaderboard td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .leaderboard th {
+            background: var(--primary);
+            color: white;
+        }
+
+        .leaderboard tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .leaderboard tr:hover {
+            background: #f0f0f0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        .badge-gold {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .badge-silver {
+            background: #C0C0C0;
+            color: #333;
+        }
+
+        .badge-bronze {
+            background: #CD7F32;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 3rem 5% 5rem;
+            }
+            
+            .hero-text {
+                margin-bottom: 3rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .feature-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Coin animation */
+        .coin {
+            position: absolute;
+            border-radius: 50%;
+            background: #FFD700;
+            opacity: 0.7;
+            z-index: -1;
+            animation: floatCoin linear infinite;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        @keyframes floatCoin {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                top: -10%;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                top: 100%;
+            }
+        }
+        
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        .modal h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .modal input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .modal button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .auth-switch {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #636e72;
+        }
+        
+        .auth-switch a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -15,8 +583,10 @@
         </div>
         <div class="nav-links">
             <a href="#features">Features</a>
-            <a href="#games">Games</a>
-            <a href="#about">About</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#tracker">Tracker</a>
+            <a href="#simulator">Simulator</a>
+            <a href="#leaderboard">Leaderboard</a>
             <button id="loginBtn">Login</button>
         </div>
     </nav>
@@ -52,11 +622,479 @@
         </div>
     </section>
 
+    <!-- Savings Calculator -->
+    <section id="calculator" class="calculator-section">
+        <h2 class="section-title">Savings Calculator</h2>
+        <div class="calculator-container">
+            <div class="form-group">
+                <label for="initial-amount">Initial Amount ($)</label>
+                <input type="number" id="initial-amount" placeholder="1000">
+            </div>
+            <div class="form-group">
+                <label for="monthly-contribution">Monthly Contribution ($)</label>
+                <input type="number" id="monthly-contribution" placeholder="100">
+            </div>
+            <div class="form-group">
+                <label for="interest-rate">Annual Interest Rate (%)</label>
+                <input type="number" id="interest-rate" placeholder="5" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="years">Years to Grow</label>
+                <input type="number" id="years" placeholder="10">
+            </div>
+            <button id="calculate-btn" class="btn">Calculate</button>
+            <div id="calculator-result" class="result">
+                <h3>Projected Savings</h3>
+                <p id="future-value"></p>
+                <canvas id="savings-chart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section id="tracker" class="tracker-section">
+        <h2 class="section-title">My Progress Tracker</h2>
+        <div class="progress-container">
+            <div class="progress-item">
+                <h3>Savings Goal: $5,000</h3>
+                <div class="progress-stats">
+                    <div>Saved: $2,350</div>
+                    <div>47% Complete</div>
+                    <div>Remaining: $2,650</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 47%"></div>
+                </div>
+            </div>
+            
+            <div class="progress-item">
+                <h3>Budgeting Challenge</h3>
+                <div class="progress-stats">
+                    <div>Days Completed: 12/30</div>
+                    <div>40% Complete</div>
+                    <div>Streak: 5 days</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%"></div>
+                </div>
+            </div>
+            
+            <div class="progress-item">
+                <h3>Investment Knowledge</h3>
+                <div class="progress-stats">
+                    <div>Lessons Completed: 8/15</div>
+                    <div>53% Complete</div>
+                    <div>Current Level: Intermediate</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 53%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Simulator -->
+    <section id="simulator" class="simulator-section">
+        <h2 class="section-title">Budget Simulator</h2>
+        <div class="simulator-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="income">Income</div>
+                <div class="tab" data-tab="expenses">Expenses</div>
+                <div class="tab" data-tab="results">Results</div>
+            </div>
+            
+            <div id="income" class="tab-content active">
+                <div class="form-group">
+                    <label for="monthly-income">Monthly Income ($)</label>
+                    <input type="number" id="monthly-income" placeholder="3000">
+                </div>
+                <div class="form-group">
+                    <label for="other-income">Other Income ($)</label>
+                    <input type="number" id="other-income" placeholder="200">
+                </div>
+                <button class="btn next-tab" data-next="expenses">Next</button>
+            </div>
+            
+            <div id="expenses" class="tab-content">
+                <div class="form-group">
+                    <label for="housing">Housing ($)</label>
+                    <input type="number" id="housing" placeholder="1000">
+                </div>
+                <div class="form-group">
+                    <label for="food">Food ($)</label>
+                    <input type="number" id="food" placeholder="400">
+                </div>
+                <div class="form-group">
+                    <label for="transportation">Transportation ($)</label>
+                    <input type="number" id="transportation" placeholder="300">
+                </div>
+                <div class="form-group">
+                    <label for="entertainment">Entertainment ($)</label>
+                    <input type="number" id="entertainment" placeholder="200">
+                </div>
+                <div class="form-group">
+                    <label for="savings">Savings ($)</label>
+                    <input type="number" id="savings" placeholder="500">
+                </div>
+                <button class="btn next-tab" data-next="results">Calculate Budget</button>
+            </div>
+            
+            <div id="results" class="tab-content">
+                <h3>Your Budget Breakdown</h3>
+                <canvas id="budget-chart" width="400" height="300"></canvas>
+                <div id="budget-results"></div>
+                <button class="btn" id="reset-simulator">Start Over</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard -->
+    <section id="leaderboard" class="leaderboard-section">
+        <h2 class="section-title">Community Leaderboard</h2>
+        <div class="leaderboard">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Points</th>
+                        <th>Level</th>
+                        <th>Badges</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><i class="fas fa-crown" style="color: gold;"></i> MoneyMaster99</td>
+                        <td>5,280</td>
+                        <td>Expert</td>
+                        <td><span class="badge badge-gold">Gold Saver</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><i class="fas fa-medal" style="color: silver;"></i> BudgetBoss</td>
+                        <td>4,750</td>
+                        <td>Advanced</td>
+                        <td><span class="badge badge-silver">Silver Investor</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><i class="fas fa-medal" style="color: #cd7f32;"></i> FrugalFred</td>
+                        <td>4,120</td>
+                        <td>Advanced</td>
+                        <td><span class="badge badge-bronze">Bronze Budgeter</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>SavvySaver</td>
+                        <td>3,850</td>
+                        <td>Intermediate</td>
+                        <td><span class="badge">Rising Star</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>ThriftyTheo</td>
+                        <td>3,450</td>
+                        <td>Intermediate</td>
+                        <td><span class="badge">Consistent Saver</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>© 2024 GoalStone | Made for teens, by teens!</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // DOM Elements
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const featureCards = document.querySelectorAll('.card');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const calculatorResult = document.getElementById('calculator-result');
+        const futureValue = document.getElementById('future-value');
+        const resetSimulatorBtn = document.getElementById('reset-simulator');
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const nextTabButtons = document.querySelectorAll('.next-tab');
+
+        // Login/Signup Modal
+        function createAuthModal(type) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>${type === 'login' ? 'Welcome Back!' : 'Join GoalStone!'}</h2>
+                    <form>
+                        ${type === 'signup' ? '<input type="text" placeholder="Full Name" required>' : ''}
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Password" required>
+                        <button type="submit">${type === 'login' ? 'Login' : 'Create Account'}</button>
+                    </form>
+                    <p class="auth-switch">${type === 'login' ? 'New here? ' : 'Already have an account? '}
+                        <a href="#">${type === 'login' ? 'Sign up instead' : 'Log in instead'}</a>
+                    </p>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Close modal
+            modal.querySelector('.close-btn').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            // Switch between login/signup
+            modal.querySelector('.auth-switch a').addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.remove();
+                createAuthModal(type === 'login' ? 'signup' : 'login');
+            });
+            
+            // Form submission
+            modal.querySelector('form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert(`${type === 'login' ? 'Login' : 'Signup'} successful! (This is a demo)`);
+                modal.remove();
+            });
+            
+            // Close when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.remove();
+            });
+        }
+
+        // Savings Calculator
+        function calculateSavings() {
+            const initialAmount = parseFloat(document.getElementById('initial-amount').value) || 0;
+            const monthlyContribution = parseFloat(document.getElementById('monthly-contribution').value) || 0;
+            const annualInterestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            const years = parseFloat(document.getElementById('years').value) || 0;
+            
+            const monthlyRate = annualInterestRate / 100 / 12;
+            const months = years * 12;
+            
+            // Future value calculation
+            let futureValueAmount = initialAmount;
+            const monthlyData = [];
+            
+            for (let i = 0; i <= months; i++) {
+                if (i > 0) {
+                    futureValueAmount = futureValueAmount * (1 + monthlyRate) + monthlyContribution;
+                }
+                monthlyData.push(futureValueAmount);
+            }
+            
+            // Display result
+            calculatorResult.style.display = 'block';
+            futureValue.textContent = `After ${years} years, your savings will be worth $${futureValueAmount.toFixed(2)}`;
+            
+            // Create chart
+            createSavingsChart(monthlyData, years);
+        }
+
+        function createSavingsChart(data, years) {
+            const ctx = document.getElementById('savings-chart').getContext('2d');
+            
+            // Destroy previous chart if exists
+            if (window.savingsChart) {
+                window.savingsChart.destroy();
+            }
+            
+            const labels = [];
+            for (let i = 0; i <= years; i++) {
+                labels.push(`Year ${i}`);
+            }
+            
+            // Only show every year's data point
+            const yearlyData = [];
+            const monthsPerYear = data.length / years;
+            for (let i = 0; i < data.length; i += Math.floor(monthsPerYear)) {
+                yearlyData.push(data[Math.min(i, data.length - 1)]);
+            }
+            
+            window.savingsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Savings Growth',
+                        data: yearlyData,
+                        borderColor: '#6c5ce7',
+                        backgroundColor: 'rgba(108, 94, 231, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Amount ($)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Years'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Budget Simulator
+        function setupBudgetSimulator() {
+            // Tab switching
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab).classList.add('active');
+                });
+            });
+            
+            // Next buttons
+            nextTabButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const nextTab = button.dataset.next;
+                    
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    document.querySelector(`.tab[data-tab="${nextTab}"]`).classList.add('active');
+                    document.getElementById(nextTab).classList.add('active');
+                    
+                    if (nextTab === 'results') {
+                        calculateBudget();
+                    }
+                });
+            });
+            
+            // Reset button
+            resetSimulatorBtn.addEventListener('click', () => {
+                document.querySelectorAll('#income input, #expenses input').forEach(input => {
+                    input.value = '';
+                });
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                tabs[0].classList.add('active');
+                tabContents[0].classList.add('active');
+                
+                if (window.budgetChart) {
+                    window.budgetChart.destroy();
+                }
+                
+                document.getElementById('budget-results').innerHTML = '';
+            });
+        }
+
+        function calculateBudget() {
+            const income = parseFloat(document.getElementById('monthly-income').value) || 0;
+            const otherIncome = parseFloat(document.getElementById('other-income').value) || 0;
+            const housing = parseFloat(document.getElementById('housing').value) || 0;
+            const food = parseFloat(document.getElementById('food').value) || 0;
+            const transportation = parseFloat(document.getElementById('transportation').value) || 0;
+            const entertainment = parseFloat(document.getElementById('entertainment').value) || 0;
+            const savings = parseFloat(document.getElementById('savings').value) || 0;
+            
+            const totalIncome = income + otherIncome;
+            const totalExpenses = housing + food + transportation + entertainment + savings;
+            const balance = totalIncome - totalExpenses;
+            
+            // Create chart
+            createBudgetChart(totalIncome, housing, food, transportation, entertainment, savings);
+            
+            // Display results
+            const resultsDiv = document.getElementById('budget-results');
+            resultsDiv.innerHTML = `
+                <h4>Summary</h4>
+                <p><strong>Total Income:</strong> $${totalIncome.toFixed(2)}</p>
+                <p><strong>Total Expenses:</strong> $${totalExpenses.toFixed(2)}</p>
+                <p><strong>Remaining Balance:</strong> $${balance.toFixed(2)}</p>
+                <p class="${balance >= 0 ? 'text-success' : 'text-danger'}">
+                    ${balance >= 0 ? '✅ Your budget is balanced!' : '⚠️ You are spending more than you earn!'}
+                </p>
+                ${balance < 0 ? '<p>Try reducing expenses in one or more categories.</p>' : ''}
+            `;
+        }
+
+        function createBudgetChart(income, housing, food, transportation, entertainment, savings) {
+            const ctx = document.getElementById('budget-chart').getContext('2d');
+            
+            // Destroy previous chart if exists
+            if (window.budgetChart) {
+                window.budgetChart.destroy();
+            }
+            
+            window.budgetChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Housing', 'Food', 'Transportation', 'Entertainment', 'Savings', 'Remaining'],
+                    datasets: [{
+                        data: [housing, food, transportation, entertainment, savings, income - (housing + food + transportation + entertainment + savings)],
+                        backgroundColor: [
+                            '#6c5ce7',
+                            '#00cec9',
+                            '#fd79a8',
+                            '#fdcb6e',
+                            '#00b894',
+                            '#dfe6e9'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const percentage = Math.round((value / income) * 100);
+                                    return `${label}: $${value.toFixed(2)} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Animate feature cards on scroll
+        function animateCards() {
+            featureCards.forEach((card, index) => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.transitionDelay = `${index * 0.1}s`;
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Create floating coins animation
+        function createCoins() {
+            const colors = ['#FFD700', '#C0C0C0', '#CD7F32']; // Gold, Silver, Bronze
+            const container = document.querySelector('.hero
