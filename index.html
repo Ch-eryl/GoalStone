@@ -1,151 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... existing meta tags and styles ... -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GoalStone: Money Management for Teens" />
+  <title>GoalStone - Teen Money Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Enhanced Navigation -->
-    <nav aria-label="Main navigation">
-        <div class="logo">
-            <img src="images/logo.png" alt="GoalStone Logo" width="40" height="40">
-            <h1>GoalStone</h1>
-        </div>
-        <div class="nav-links" role="navigation">
-            <a href="#features" aria-label="Features section">Features</a>
-            <a href="#calculator" aria-label="Calculator section">Calculator</a>
-            <a href="#tracker" aria-label="Tracker section">Tracker</a>
-            <a href="#simulator" aria-label="Simulator section">Simulator</a>
-            <a href="#leaderboard" aria-label="Leaderboard section">Leaderboard</a>
-            <button id="darkModeToggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button id="loginBtn" aria-label="Login">Login</button>
-        </div>
+  <header>
+    <h1>GoalStone</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- Enhanced Hero Section -->
-    <section class="hero" role="banner">
-        <div class="hero-text">
-            <h2><span class="emoji" role="img" aria-label="money bag">💰</span> Level Up Your Money Skills!</h2>
-            <p>Learn budgeting, saving, and investing through fun games and challenges.</p>
-            <div class="cta-buttons">
-                <button id="signupBtn" class="primary-btn">Start for Free</button>
-                <button id="watchDemoBtn" class="secondary-btn">
-                    <i class="fas fa-play-circle"></i> Watch Demo
-                </button>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="images/hero-character.png" alt="Teen saving money" loading="lazy">
-            <div class="achievement-badge" aria-hidden="true">
-                <span>🏆</span>
-                <p>Join 10,000+ Users!</p>
-            </div>
-        </div>
+  <main>
+    <section id="hero">
+      <h2>Empowering Teens to Manage Money</h2>
+      <p>GoalStone is your personal finance coach in your pocket. Learn, save, and thrive!</p>
+      <button onclick="scrollToSection('features')">Explore Features</button>
     </section>
 
-    <!-- Enhanced Features Section -->
-    <section id="features" class="features">
-        <h2>How GoalStone Works</h2>
-        <div class="feature-cards">
-            <article class="card" tabindex="0">
-                <div class="card-icon">🎮</div>
-                <h3>Money Quest</h3>
-                <p>Play games & complete missions to earn rewards.</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Daily Challenges</li>
-                    <li><i class="fas fa-check"></i> Real Rewards</li>
-                    <li><i class="fas fa-check"></i> Progress Tracking</li>
-                </ul>
-            </article>
-            <!-- Similar improvements for other cards -->
-        </div>
+    <section id="about">
+      <h2>About GoalStone</h2>
+      <p>GoalStone is designed for teenagers to build strong financial habits through goal-setting, tracking, and interactive learning. Whether you're saving for a dream item or just want to understand how money works, we've got your back.</p>
     </section>
 
-    <!-- Enhanced Calculator Section -->
-    <section id="calculator" class="calculator-section">
-        <h2 class="section-title">Savings Calculator</h2>
-        <div class="calculator-container">
-            <form id="savings-form" class="calculator-form">
-                <div class="form-group">
-                    <label for="initial-amount">Initial Amount ($)</label>
-                    <div class="input-with-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                        <input type="number" id="initial-amount" placeholder="1000" min="0" step="100" required>
-                    </div>
-                </div>
-                <!-- Similar improvements for other inputs -->
-                <div class="calculator-actions">
-                    <button type="submit" id="calculate-btn" class="btn">
-                        <i class="fas fa-calculator"></i> Calculate
-                    </button>
-                    <button type="reset" class="btn btn-secondary">
-                        <i class="fas fa-redo"></i> Reset
-                    </button>
-                </div>
-            </form>
-            <div id="calculator-result" class="result" aria-live="polite">
-                <!-- Result content -->
-            </div>
-        </div>
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>🎯 Goal Setting & Tracking</li>
+        <li>📚 Learn Money Basics</li>
+        <li>📊 Budgeting Tools</li>
+        <li>👥 Community Support</li>
+      </ul>
     </section>
 
-    <!-- New Gamification Elements -->
-    <section class="achievements-section">
-        <h2>Your Achievements</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="achievement-icon">🎯</div>
-                <h3>Goal Setter</h3>
-                <p>Set your first savings goal</p>
-                <div class="progress-ring" data-progress="100"></div>
-            </div>
-            <div class="achievement-card locked">
-                <div class="achievement-icon">💎</div>
-                <h3>Super Saver</h3>
-                <p>Save $1000 in 30 days</p>
-                <div class="progress-ring" data-progress="65"></div>
-            </div>
-            <!-- More achievement cards -->
-        </div>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
     </section>
+  </main>
 
-    <!-- Enhanced Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <nav aria-label="Footer navigation">
-                    <a href="#features">Features</a>
-                    <a href="#calculator">Calculator</a>
-                    <a href="#tracker">Tracker</a>
-                    <a href="#simulator">Simulator</a>
-                </nav>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Join our Discord"><i class="fab fa-discord"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Newsletter</h3>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
-                    <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 GoalStone | Made for teens, by teens!</p>
-            <nav class="legal-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Us</a>
-            </nav>
-        </div>
-    </footer>
+  <footer>
+    <p>&copy; 2025 GoalStone. All rights reserved.</p>
+  </footer>
 </body>
 </html>
