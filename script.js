@@ -1,188 +1,132 @@
-// Interactive Budget Planner
-function setupBudgetPlanner() {
-    const budgetContainer = document.getElementById('budget-planner');
-    if (!budgetContainer) return;
+// Add new category types and improved colors
+const categories = [
+    { id: 'housing', name: 'Housing', allocated: 0, max: 30, color: '#4834d4', icon: '🏠' },
+    { id: 'food', name: 'Food & Groceries', allocated: 0, max: 15, color: '#6ab04c', icon: '🍎' },
+    { id: 'transport', name: 'Transportation', allocated: 0, max: 10, color: '#eb4d4b', icon: '🚗' },
+    { id: 'entertainment', name: 'Entertainment', allocated: 0, max: 10, color: '#be2edd', icon: '🎮' },
+    { id: 'savings', name: 'Savings & Investment', allocated: 0, max: 20, color: '#22a6b3', icon: '💰' },
+    { id: 'education', name: 'Education', allocated: 0, max: 10, color: '#f9ca24', icon: '📚' },
+    { id: 'health', name: 'Health & Fitness', allocated: 0, max: 10, color: '#badc58', icon: '⚕️' },
+    { id: 'other', name: 'Other', allocated: 0, max: 15, color: '#95afc0', icon: '📌' }
+];
+
+// Enhanced category element creation
+categoryElement.innerHTML = `
+    <div class="category-header" style="background: ${category.color}">
+        <span class="category-icon">${category.icon}</span>
+        <h3>${category.name}</h3>
+        <div class="category-percentage">0%</div>
+    </div>
+    <div class="category-body">
+        <div class="category-progress">
+            <div class="progress-bar" style="width: 0%; background: linear-gradient(45deg, ${category.color}, ${adjustColor(category.color, 20)})"></div>
+        </div>
+        <div class="category-amounts">
+            <span class="allocated">$0</span>
+            <span class="max">of $${category.max * 100}</span>
+        </div>
+        <div class="category-tips"></div>
+    </div>
+`;
+
+// Add financial tips based on allocation
+function showCategoryTips(category) {
+    const tips = {
+        housing: ['Consider roommates to split rent', 'Check for utility savings programs'],
+        food: ['Plan meals ahead', 'Buy in bulk for savings'],
+        transport: ['Use public transit when possible', 'Consider carpooling'],
+        entertainment: ['Look for free local events', 'Use student discounts'],
+        savings: ['Set up automatic transfers', 'Consider high-yield savings accounts'],
+        education: ['Apply for scholarships', 'Buy used textbooks'],
+        health: ['Use preventive care services', 'Compare insurance plans'],
+        other: ['Track miscellaneous expenses', 'Look for areas to reduce spending']
+    };
     
-    // Initialize draggable categories
-    const categories = [
-        { id: 'housing', name: 'Housing', allocated: 0, max: 30, color: '#3498db' },
-        { id: 'food', name: 'Food', allocated: 0, max: 15, color: '#2ecc71' },
-        { id: 'transport', name: 'Transport', allocated: 0, max: 10, color: '#f39c12' },
-        { id: 'entertainment', name: 'Entertainment', allocated: 0, max: 10, color: '#9b59b6' },
-        { id: 'savings', name: 'Savings', allocated: 0, max: 20, color: '#1abc9c' },
-        { id: 'other', name: 'Other', allocated: 0, max: 15, color: '#95a5a6' }
-    ];
-    
-    // Create budget categories
-    const categoriesContainer = document.createElement('div');
-    categoriesContainer.className = 'budget-categories';
-    
+    const tipElement = document.querySelector(`#category-${category.id} .category-tips`);
+    const randomTip = tips[category.id][Math.floor(Math.random() * tips[category.id].length)];
+    tipElement.innerHTML = `<i class="fas fa-lightbulb"></i> Tip: ${randomTip}`;
+}
+
+// Enhanced money controls
+moneyContainer.innerHTML = `
+    <div class="money-bag" draggable="true" id="money-bag">
+        <div class="money-glow"></div>
+        <img src="images/money-bag.png" alt="Money">
+        <div class="money-value">$100</div>
+    </div>
+    <div class="money-controls">
+        <button class="money-btn" data-amount="10">$10</button>
+        <button class="money-btn" data-amount="50">$50</button>
+        <button class="money-btn" data-amount="100">$100</button>
+        <button class="money-btn" data-amount="500">$500</button>
+        <button class="money-btn" data-amount="1000">$1000</button>
+        <div class="custom-amount-container">
+            <input type="number" id="custom-amount" min="1" placeholder="Custom Amount">
+            <button id="add-custom-amount">Add</button>
+        </div>
+    </div>
+    <div class="quick-actions">
+        <button id="split-equally">Split Equally</button>
+        <button id="clear-all">Clear All</button>
+        <button id="optimize-budget">Optimize Budget</button>
+    </div>
+`;
+
+// Add budget insights
+function showBudgetInsights() {
+    const insights = document.createElement('div');
+    insights.className = 'budget-insights';
+    insights.innerHTML = `
+        <h3>Budget Insights</h3>
+        <div class="insights-grid">
+            <div class="insight-card">
+                <span class="insight-icon">📊</span>
+                <h4>Spending Analysis</h4>
+                <p>Your biggest expense is ${getTopExpenseCategory()}</p>
+            </div>
+            <div class="insight-card">
+                <span class="insight-icon">💡</span>
+                <h4>Savings Potential</h4>
+                <p>You could save ${calculateSavingsPotential()}</p>
+            </div>
+            <div class="insight-card">
+                <span class="insight-icon">🎯</span>
+                <h4>Budget Health</h4>
+                <p>${calculateBudgetHealth()}</p>
+            </div>
+        </div>
+    `;
+    budgetContainer.appendChild(insights);
+}
+
+// Add budget optimization
+function optimizeBudget() {
+    const income = parseInt(document.getElementById('income-amount').textContent.replace(/,/g, ''));
     categories.forEach(category => {
-        const categoryElement = document.createElement('div');
-        categoryElement.className = 'budget-category';
-        categoryElement.id = `category-${category.id}`;
-        categoryElement.innerHTML = `
-            <div class="category-header" style="background: ${category.color}">
-                <h3>${category.name}</h3>
-                <div class="category-percentage">0%</div>
-            </div>
-            <div class="category-body">
-                <div class="category-progress">
-                    <div class="progress-bar" style="width: 0%; background: ${category.color}"></div>
-                </div>
-                <div class="category-amounts">
-                    <span class="allocated">$0</span>
-                    <span class="max">of $${category.max * 100}</span>
-                </div>
-            </div>
-        `;
+        const recommendedAmount = (category.max / 100) * income;
+        const currentAmount = category.allocated;
         
-        // Make category draggable
-        categoryElement.draggable = true;
-        categoryElement.dataset.category = category.id;
-        
-        categoryElement.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', category.id);
-            setTimeout(() => {
-                categoryElement.classList.add('dragging');
-            }, 0);
-        });
-        
-        categoryElement.addEventListener('dragend', () => {
-            categoryElement.classList.remove('dragging');
-        });
-        
-        categoriesContainer.appendChild(categoryElement);
-    });
-    
-    // Create income section
-    const incomeContainer = document.createElement('div');
-    incomeContainer.className = 'budget-income';
-    incomeContainer.innerHTML = `
-        <h2>Monthly Income: $<span id="income-amount">3000</span></h2>
-        <div class="income-slider">
-            <input type="range" id="income-slider" min="1000" max="10000" step="100" value="3000">
-        </div>
-        <div class="remaining-budget">
-            <h3>Remaining Budget: $<span id="remaining-amount">3000</span></h3>
-            <div class="remaining-bar">
-                <div class="progress-bar" style="width: 100%"></div>
-            </div>
-        </div>
-    `;
-    
-    // Create money elements
-    const moneyContainer = document.createElement('div');
-    moneyContainer.className = 'budget-money';
-    moneyContainer.innerHTML = `
-        <div class="money-bag" draggable="true" id="money-bag">
-            <img src="money-bag.png" alt="Money">
-            <div class="money-value">$100</div>
-        </div>
-        <div class="money-controls">
-            <button class="money-btn" data-amount="10">$10</button>
-            <button class="money-btn" data-amount="50">$50</button>
-            <button class="money-btn" data-amount="100">$100</button>
-            <button class="money-btn" data-amount="500">$500</button>
-            <input type="number" id="custom-amount" min="1" placeholder="Custom">
-        </div>
-    `;
-    
-    // Set up drop zones
-    categoriesContainer.querySelectorAll('.budget-category').forEach(category => {
-        category.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            category.classList.add('drag-over');
-        });
-        
-        category.addEventListener('dragleave', () => {
-            category.classList.remove('drag-over');
-        });
-        
-        category.addEventListener('drop', (e) => {
-            e.preventDefault();
-            category.classList.remove('drag-over');
-            
-            const categoryId = category.dataset.category;
-            const moneyAmount = parseInt(document.querySelector('#money-bag').dataset.amount || '100');
-            
-            allocateMoney(categoryId, moneyAmount);
-        });
-    });
-    
-    // Set up money bag dragging
-    const moneyBag = moneyContainer.querySelector('#money-bag');
-    moneyBag.addEventListener('dragstart', (e) => {
-        const amount = moneyBag.dataset.amount || '100';
-        e.dataTransfer.setData('text/plain', amount);
-        setTimeout(() => {
-            moneyBag.classList.add('dragging');
-        }, 0);
-    });
-    
-    moneyBag.addEventListener('dragend', () => {
-        moneyBag.classList.remove('dragging');
-    });
-    
-    // Set up money amount buttons
-    moneyContainer.querySelectorAll('.money-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const amount = parseInt(btn.dataset.amount);
-            updateMoneyBag(amount);
-        });
-    });
-    
-    // Set up custom amount input
-    moneyContainer.querySelector('#custom-amount').addEventListener('change', (e) => {
-        const amount = parseInt(e.target.value);
-        if (!isNaN(amount) && amount > 0) {
-            updateMoneyBag(amount);
+        if (currentAmount > recommendedAmount) {
+            showBudgetAlert(`Consider reducing ${category.name} spending by $${(currentAmount - recommendedAmount).toFixed(2)}`, 'warning');
         }
     });
+}
+
+// Add export functionality
+function exportBudget() {
+    const budgetData = {
+        income: parseInt(document.getElementById('income-amount').textContent.replace(/,/g, '')),
+        categories: categories.map(c => ({
+            name: c.name,
+            allocated: c.allocated,
+            percentage: ((c.allocated / income) * 100).toFixed(1)
+        }))
+    };
     
-    // Set up income slider
-    incomeContainer.querySelector('#income-slider').addEventListener('input', (e) => {
-        const income = parseInt(e.target.value);
-        updateIncome(income);
-    });
-    
-    // Assemble the budget planner
-    budgetContainer.innerHTML = '';
-    budgetContainer.appendChild(incomeContainer);
-    budgetContainer.appendChild(moneyContainer);
-    budgetContainer.appendChild(categoriesContainer);
-    
-    // Initialize values
-    updateIncome(3000);
-    updateMoneyBag(100);
-    
-    // Helper functions
-    function updateIncome(amount) {
-        document.getElementById('income-amount').textContent = amount.toLocaleString();
-        updateRemainingBudget();
-    }
-    
-    function updateMoneyBag(amount) {
-        moneyBag.dataset.amount = amount;
-        moneyBag.querySelector('.money-value').textContent = `$${amount}`;
-        document.getElementById('custom-amount').value = amount;
-    }
-    
-    function allocateMoney(categoryId, amount) {
-        const category = categories.find(c => c.id === categoryId);
-        const income = parseInt(document.getElementById('income-amount').textContent.replace(/,/g, ''));
-        const maxAmount = (category.max / 100) * income;
-        
-        if (category.allocated + amount > maxAmount) {
-            showBudgetAlert(`You've exceeded the maximum recommended allocation for ${category.name}!`);
-            amount = maxAmount - category.allocated;
-            if (amount <= 0) return;
-        }
-        
-        category.allocated += amount;
-        updateCategoryDisplay(category);
-        updateRemainingBudget();
-        
-        // Visual feedback
-        const categoryElement = document.getElementById(`category-${categoryId}`);
-        categoryElement.classList.add('
+    const blob = new Blob([JSON.stringify(budgetData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'budget-plan.json';
+    a.click();
+}
