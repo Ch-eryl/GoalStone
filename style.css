@@ -1,85 +1,99 @@
- /* Enhance Global Styling */
+/* ===== GLOBAL STYLES ===== */
 body {
     background-image:
         radial-gradient(circle at 10% 20%, rgba(108, 94, 231, 0.07) 0%, rgba(108, 94, 231, 0.05) 90%),
         linear-gradient(to bottom right, #f5f6fa, #ffffff);
+    background-attachment: fixed;
+    background-size: cover;
     transition: background 0.3s ease-in-out;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
 }
 
-/* Add Glassmorphism effect to cards */
+/* ===== CARD STYLES (GLASSMORPHISM) ===== */
 .card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px) scale(1.015);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* Animate underline more fluidly */
-.nav-links a::after {
-    transition: width 0.4s ease-in-out;
+/* ===== NAVIGATION LINKS ===== */
+.nav-links a {
+    position: relative;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    background-image: linear-gradient(to right, var(--primary, #6c5ce7), var(--secondary, #a29bfe));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    color: inherit;
+    text-decoration: none;
+    transition: background-size 0.4s ease-in-out, color 0.3s ease;
 }
 
-/* Add glowing hover effect to buttons */
+.nav-links a:hover {
+    background-size: 100% 2px;
+    color: #6c5ce7;
+}
+
+/* ===== BUTTON HOVER & ANIMATION ===== */
 #loginBtn:hover,
 #signupBtn:hover {
     box-shadow: 0 6px 18px rgba(108, 94, 231, 0.3), 0 0 10px rgba(108, 94, 231, 0.1);
 }
 
-/* Add pulse animation to signup button */
 #signupBtn {
     animation: pulse 4s infinite ease-in-out;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.03); }
+    50% { transform: scale(1.05); }
 }
 
-/* Gradient border for extra style */
-.nav-links a {
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
-    background-image: linear-gradient(to right, var(--primary), var(--secondary));
-    background-size: 0% 2px;
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    transition: background-size 0.3s;
-}
-
-.nav-links a:hover {
-    background-size: 100% 2px;
-}
-
-/* Floating particles for visual interest */
-@keyframes drift {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
-    100% { transform: translateY(0) rotate(360deg); opacity: 0.4; }
-}
-
+/* ===== PARTICLE EFFECT ===== */
 .particle {
-    width: 12px;
-    height: 12px;
-    background: rgba(108, 94, 231, 0.15);
-    animation: drift 10s infinite ease-in-out;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(108, 94, 231, 0.12);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: drift 12s infinite ease-in-out;
 }
 
-/* Add bounce to logo on hover */
+@keyframes drift {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+    50%  { transform: translateY(-30px) rotate(180deg); opacity: 0.7; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
+}
+
+/* ===== LOGO BOUNCE ===== */
+.logo h1 {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
 .logo h1:hover {
     animation: bounce 1s ease-in-out;
 }
 
 @keyframes bounce {
     0%   { transform: translateY(0); }
-    50%  { transform: translateY(-8px); }
+    50%  { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
- 
-  
+
