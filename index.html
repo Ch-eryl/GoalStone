@@ -3,58 +3,469 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="GoalStone: Money Management for Teens" />
-  <title>GoalStone - Teen Money Management</title>
+  <meta name="description" content="GoalStone: The Ultimate Money Management Platform for Teens - Learn budgeting, saving, and financial literacy through interactive tools and games." />
+  <title>GoalStone - Teen Money Management & Financial Education</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <h1>GoalStone</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="header-container">
+      <div class="logo">
+        <h1><i class="fas fa-piggy-bank"></i> GoalStone</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="learning.html">Learning Hub</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="login.html" class="btn-login">Login/Sign Up</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
   </header>
 
   <main>
-    <section id="hero">
-      <h2>Empowering Teens to Manage Money</h2>
-      <p>GoalStone is your personal finance coach in your pocket. Learn, save, and thrive!</p>
-      <button onclick="scrollToSection('features')">Explore Features</button>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h2>Financial Freedom Starts Here</h2>
+        <p class="subtitle">GoalStone helps teens master money management through interactive tools, personalized coaching, and gamified learning.</p>
+        <div class="cta-buttons">
+          <button class="btn-primary" onclick="location.href='signup.html'">Get Started - It's Free!</button>
+          <button class="btn-secondary" onclick="scrollToSection('how-it-works')">How It Works</button>
+        </div>
+        <div class="app-badges">
+          <img src="images/app-store-badge.svg" alt="Download on the App Store">
+          <img src="images/google-play-badge.svg" alt="Get it on Google Play">
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-app-screenshot.png" alt="GoalStone mobile app interface">
+      </div>
     </section>
 
-    <section id="about">
-      <h2>About GoalStone</h2>
-      <p>GoalStone is designed for teenagers to build strong financial habits through goal-setting, tracking, and interactive learning. Whether you're saving for a dream item or just want to understand how money works, we've got your back.</p>
+    <!-- Trust Indicators -->
+    <section class="trust-badges">
+      <div class="badge-container">
+        <div class="badge-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Bank-Level Security</span>
+        </div>
+        <div class="badge-item">
+          <i class="fas fa-user-graduate"></i>
+          <span>Used in 500+ Schools</span>
+        </div>
+        <div class="badge-item">
+          <i class="fas fa-heart"></i>
+          <span>Parent Approved</span>
+        </div>
+      </div>
     </section>
 
-    <section id="features">
-      <h2>Features</h2>
-      <ul>
-        <li>🎯 Goal Setting & Tracking</li>
-        <li>📚 Learn Money Basics</li>
-        <li>📊 Budgeting Tools</li>
-        <li>👥 Community Support</li>
-      </ul>
+    <!-- How It Works -->
+    <section id="how-it-works" class="steps-section">
+      <h2>How GoalStone Works</h2>
+      <p class="section-description">Three simple steps to financial confidence</p>
+      
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Set Your Goals</h3>
+          <p>Whether it's saving for a new phone, college, or your first car, we help you define and visualize your financial targets.</p>
+          <img src="images/goal-setting.png" alt="Setting financial goals">
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Track & Learn</h3>
+          <p>Our smart tracker monitors your progress while our bite-sized lessons teach you money skills that last a lifetime.</p>
+          <img src="images/tracking.png" alt="Tracking progress">
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Achieve & Grow</h3>
+          <p>Celebrate milestones, earn rewards, and watch your financial confidence grow alongside your savings.</p>
+          <img src="images/achievement.png" alt="Celebrating achievements">
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <h2>Powerful Features Designed for Teens</h2>
+      <p class="section-description">Everything you need to build money skills for life</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Smart Goal Engine</h3>
+          <p>Our AI-powered system helps you set realistic goals based on your income and spending habits, with automatic progress tracking.</p>
+          <a href="features.html#goals" class="learn-more">Learn more →</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <h3>Financial Games</h3>
+          <p>Learn investing, budgeting, and more through interactive games and simulations that make finance fun.</p>
+          <a href="learning.html#games" class="learn-more">Learn more →</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3>Visual Budgeting</h3>
+          <p>See where your money goes with colorful charts and get personalized tips to optimize your spending.</p>
+          <a href="features.html#budgeting" class="learn-more">Learn more →</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3>Family Mode</h3>
+          <p>Connect with parents for guidance, matching contributions, or to showcase your financial progress.</p>
+          <a href="features.html#family" class="learn-more">Learn more →</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h3>Rewards System</h3>
+          <p>Earn badges and unlock rewards for hitting savings targets and completing financial challenges.</p>
+          <a href="features.html#rewards" class="learn-more">Learn more →</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-comments-dollar"></i>
+          </div>
+          <h3>Peer Community</h3>
+          <p>Join discussions, share tips, and get motivated by other teens working toward their financial goals.</p>
+          <a href="community.html" class="learn-more">Learn more →</a>
+        </div>
+      </div>
+      
+      <div class="features-cta">
+        <button onclick="location.href='features.html'" class="btn-primary">Explore All Features</button>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <h2>What Our Users Say</h2>
+      <div class="testimonials-slider">
+        <div class="testimonial">
+          <div class="user-info">
+            <img src="images/user-jamie.jpg" alt="Jamie">
+            <div>
+              <h4>Jamie, 16</h4>
+              <span class="achievement">Saved $1,200 for a laptop</span>
+            </div>
+          </div>
+          <p>"GoalStone made saving actually fun! The progress charts kept me motivated, and I learned so much about budgeting through their mini-games."</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="user-info">
+            <img src="images/user-maria.jpg" alt="Maria">
+            <div>
+              <h4>Maria, 15</h4>
+              <span class="achievement">Paid for her first car</span>
+            </div>
+          </div>
+          <p>"I never thought I could actually save enough for a car, but GoalStone broke it down into manageable steps. The community challenges kept me going!"</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="user-info">
+            <img src="images/user-parent.jpg" alt="Mr. Thompson">
+            <div>
+              <h4>Mr. Thompson, Parent</h4>
+              <span class="achievement">Father of two users</span>
+            </div>
+          </div>
+          <p>"Both my teens use GoalStone and their understanding of money has transformed. They now talk about opportunity costs and compound interest at dinner!"</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Hub Preview -->
+    <section class="learning-preview">
+      <div class="learning-content">
+        <h2>Financial Education Made Fun</h2>
+        <p>Our Learning Hub features interactive courses on:</p>
+        <ul class="learning-topics">
+          <li><i class="fas fa-check-circle"></i> Budgeting Basics</li>
+          <li><i class="fas fa-check-circle"></i> Understanding Credit</li>
+          <li><i class="fas fa-check-circle"></i> Smart Shopping</li>
+          <li><i class="fas fa-check-circle"></i> Investing Fundamentals</li>
+          <li><i class="fas fa-check-circle"></i> Entrepreneurship</li>
+          <li><i class="fas fa-check-circle"></i> Avoiding Scams</li>
+        </ul>
+        <button onclick="location.href='learning.html'" class="btn-primary">Explore Learning Hub</button>
+      </div>
+      <div class="learning-image">
+        <img src="images/learning-hub-preview.png" alt="Learning Hub preview">
+      </div>
+    </section>
+
+    <!-- Pricing (Free) -->
+    <section class="pricing-section">
+      <h2>Complete Financial Toolkit - Always Free</h2>
+      <p class="section-description">We believe financial education should be accessible to all teens</p>
+      
+      <div class="pricing-card">
+        <h3>GoalStone Free</h3>
+        <div class="price">$0 <span>forever</span></div>
+        <ul class="benefits">
+          <li><i class="fas fa-check"></i> Unlimited goal tracking</li>
+          <li><i class="fas fa-check"></i> All educational content</li>
+          <li><i class="fas fa-check"></i> Budgeting tools</li>
+          <li><i class="fas fa-check"></i> Community access</li>
+          <li><i class="fas fa-check"></i> Basic rewards</li>
+          <li><i class="fas fa-check"></i> Family connection</li>
+        </ul>
+        <button onclick="location.href='signup.html'" class="btn-primary">Get Started Now</button>
+      </div>
+      
+      <p class="non-profit">GoalStone is supported by grants and partnerships to keep our platform free for teens worldwide.</p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">
+            Is GoalStone really free?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! GoalStone is completely free for teens. We're funded through educational grants, nonprofit partnerships, and optional parent donations who want to support financial literacy.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            How is GoalStone different from regular banking apps?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>While banking apps focus on transactions, GoalStone is an educational platform that teaches money management through interactive tools. We don't hold your money but help you manage whatever accounts you already have.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            Is my financial data safe?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. We use bank-level encryption and never store your actual bank credentials. You input your savings amounts manually, or can connect through secure read-only APIs that don't allow transactions.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            Can parents monitor their teen's progress?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Only if the teen chooses to invite them through our Family Mode. We respect teen privacy while encouraging open financial conversations with parents when both parties agree.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            What age group is GoalStone designed for?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Our core platform is designed for ages 13-19, with content tailored to different experience levels. Younger teens focus on basic saving, while older users can explore investing and college financing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <p>Have questions or suggestions? We'd love to hear from you!</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <h4>Email Us</h4>
+              <a href="mailto:hello@goalstone.com">hello@goalstone.com</a>
+            </div>
+            
+            <div class="contact-method">
+              <i class="fas fa-school"></i>
+              <h4>For Educators</h4>
+              <a href="mailto:schools@goalstone.com">schools@goalstone.com</a>
+            </div>
+          
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="role">I am a</label>
+              <select id="role" name="role">
+                <option value="teen">Teen User</option>
+                <option value="parent">Parent</option>
+                <option value="educator">Educator</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+      <div class="newsletter-container">
+        <div class="newsletter-content">
+          <h3>Stay Updated</h3>
+          <p>Subscribe to our monthly newsletter for financial tips, success stories, and platform updates.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn-secondary">Subscribe</button>
+        </form>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 GoalStone. All rights reserved.</p>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3><i class="fas fa-piggy-bank"></i> GoalStone</h3>
+        <p>Empowering the next generation with financial knowledge.</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="learning.html">Learning Hub</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="safety.html">Safety & Privacy</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="impact.html">Our Impact</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="partners.html">Partners</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="parents.html">Parents Guide</a></li>
+            <li><a href="educators.html">Educators</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 GoalStone Education. All rights reserved.</p>
+      <div class="footer-lang">
+        <i class="fas fa-globe"></i>
+        <select aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
+    </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 </body>
 </html>
