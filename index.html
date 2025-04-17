@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="GoalStone: The Ultimate Money Management Platform for Teens - Learn budgeting, saving, and financial literacy through interactive tools and games." />
   <title>GoalStone - Teen Money Management & Financial Education</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
+  <header class="sticky-header">
     <div class="header-container">
       <div class="logo">
-        <h1><i class="fas fa-piggy-bank"></i> GoalStone</h1>
+        <h1><i class="fas fa-piggy-bank bounce"></i> GoalStone</h1>
       </div>
       <nav>
         <ul>
@@ -23,7 +24,7 @@
           <li><a href="community.html">Community</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="login.html" class="btn-login">Login/Sign Up</a></li>
+          <li><a href="login.html" class="btn-login pulse">Login/Sign Up</a></li>
         </ul>
       </nav>
       <button class="mobile-menu-btn" aria-label="Toggle navigation">
@@ -35,35 +36,35 @@
   <main>
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-      <div class="hero-content">
+      <div class="hero-content animate__animated animate__fadeInLeft">
         <h2>Financial Freedom Starts Here</h2>
         <p class="subtitle">GoalStone helps teens master money management through interactive tools, personalized coaching, and gamified learning.</p>
         <div class="cta-buttons">
-          <button class="btn-primary" onclick="location.href='signup.html'">Get Started - It's Free!</button>
+          <button class="btn-primary pulse" onclick="location.href='signup.html'">Get Started - It's Free!</button>
           <button class="btn-secondary" onclick="scrollToSection('how-it-works')">How It Works</button>
         </div>
         <div class="app-badges">
-          <img src="images/app-store-badge.svg" alt="Download on the App Store">
-          <img src="images/google-play-badge.svg" alt="Get it on Google Play">
+          <img src="https://via.placeholder.com/150x50/4a6fa5/ffffff?text=App+Store" alt="Download on the App Store" class="hover-grow">
+          <img src="https://via.placeholder.com/150x50/4a6fa5/ffffff?text=Google+Play" alt="Get it on Google Play" class="hover-grow">
         </div>
       </div>
-      <div class="hero-image">
-        <img src="images/hero-app-screenshot.png" alt="GoalStone mobile app interface">
+      <div class="hero-image animate__animated animate__fadeInRight">
+        <img src="https://via.placeholder.com/500x800/4a6fa5/ffffff?text=App+Screenshot" alt="GoalStone mobile app interface" class="floating">
       </div>
     </section>
 
     <!-- Trust Indicators -->
     <section class="trust-badges">
       <div class="badge-container">
-        <div class="badge-item">
+        <div class="badge-item zoom-in">
           <i class="fas fa-shield-alt"></i>
           <span>Bank-Level Security</span>
         </div>
-        <div class="badge-item">
+        <div class="badge-item zoom-in" style="animation-delay: 0.2s;">
           <i class="fas fa-user-graduate"></i>
           <span>Used in 500+ Schools</span>
         </div>
-        <div class="badge-item">
+        <div class="badge-item zoom-in" style="animation-delay: 0.4s;">
           <i class="fas fa-heart"></i>
           <span>Parent Approved</span>
         </div>
@@ -72,40 +73,40 @@
 
     <!-- How It Works -->
     <section id="how-it-works" class="steps-section">
-      <h2>How GoalStone Works</h2>
-      <p class="section-description">Three simple steps to financial confidence</p>
+      <h2 class="animate__animated animate__fadeInUp">How GoalStone Works</h2>
+      <p class="section-description animate__animated animate__fadeInUp animate__delay-1s">Three simple steps to financial confidence</p>
       
       <div class="steps-container">
-        <div class="step">
+        <div class="step animate__animated animate__fadeInUp animate__delay-1s">
           <div class="step-number">1</div>
           <h3>Set Your Goals</h3>
           <p>Whether it's saving for a new phone, college, or your first car, we help you define and visualize your financial targets.</p>
-          <img src="images/goal-setting.png" alt="Setting financial goals">
+          <img src="https://via.placeholder.com/300x200/4a6fa5/ffffff?text=Goal+Setting" alt="Setting financial goals" class="step-image">
         </div>
         
-        <div class="step">
+        <div class="step animate__animated animate__fadeInUp animate__delay-1-5s">
           <div class="step-number">2</div>
           <h3>Track & Learn</h3>
           <p>Our smart tracker monitors your progress while our bite-sized lessons teach you money skills that last a lifetime.</p>
-          <img src="images/tracking.png" alt="Tracking progress">
+          <img src="https://via.placeholder.com/300x200/4a6fa5/ffffff?text=Tracking" alt="Tracking progress" class="step-image">
         </div>
         
-        <div class="step">
+        <div class="step animate__animated animate__fadeInUp animate__delay-2s">
           <div class="step-number">3</div>
           <h3>Achieve & Grow</h3>
           <p>Celebrate milestones, earn rewards, and watch your financial confidence grow alongside your savings.</p>
-          <img src="images/achievement.png" alt="Celebrating achievements">
+          <img src="https://via.placeholder.com/300x200/4a6fa5/ffffff?text=Achievements" alt="Celebrating achievements" class="step-image">
         </div>
       </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features-section">
-      <h2>Powerful Features Designed for Teens</h2>
-      <p class="section-description">Everything you need to build money skills for life</p>
+      <h2 class="animate__animated animate__fadeInUp">Powerful Features Designed for Teens</h2>
+      <p class="section-description animate__animated animate__fadeInUp animate__delay-1s">Everything you need to build money skills for life</p>
       
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="feature-card hover-card">
           <div class="feature-icon">
             <i class="fas fa-bullseye"></i>
           </div>
@@ -114,7 +115,7 @@
           <a href="features.html#goals" class="learn-more">Learn more →</a>
         </div>
         
-        <div class="feature-card">
+        <div class="feature-card hover-card">
           <div class="feature-icon">
             <i class="fas fa-gamepad"></i>
           </div>
@@ -123,7 +124,7 @@
           <a href="learning.html#games" class="learn-more">Learn more →</a>
         </div>
         
-        <div class="feature-card">
+        <div class="feature-card hover-card">
           <div class="feature-icon">
             <i class="fas fa-chart-pie"></i>
           </div>
@@ -132,7 +133,7 @@
           <a href="features.html#budgeting" class="learn-more">Learn more →</a>
         </div>
         
-        <div class="feature-card">
+        <div class="feature-card hover-card">
           <div class="feature-icon">
             <i class="fas fa-hands-helping"></i>
           </div>
@@ -141,7 +142,7 @@
           <a href="features.html#family" class="learn-more">Learn more →</a>
         </div>
         
-        <div class="feature-card">
+        <div class="feature-card hover-card">
           <div class="feature-icon">
             <i class="fas fa-gem"></i>
           </div>
@@ -150,7 +151,7 @@
           <a href="features.html#rewards" class="learn-more">Learn more →</a>
         </div>
         
-        <div class="feature-card">
+        <div class="feature-card hover-card">
           <div class="feature-icon">
             <i class="fas fa-comments-dollar"></i>
           </div>
@@ -160,18 +161,18 @@
         </div>
       </div>
       
-      <div class="features-cta">
-        <button onclick="location.href='features.html'" class="btn-primary">Explore All Features</button>
+      <div class="features-cta animate__animated animate__fadeInUp animate__delay-1s">
+        <button onclick="location.href='features.html'" class="btn-primary pulse">Explore All Features</button>
       </div>
     </section>
 
     <!-- Testimonials -->
     <section class="testimonials-section">
-      <h2>What Our Users Say</h2>
+      <h2 class="animate__animated animate__fadeInUp">What Our Users Say</h2>
       <div class="testimonials-slider">
-        <div class="testimonial">
+        <div class="testimonial active">
           <div class="user-info">
-            <img src="images/user-jamie.jpg" alt="Jamie">
+            <img src="https://via.placeholder.com/80x80/4a6fa5/ffffff?text=Jamie" alt="Jamie" class="testimonial-img">
             <div>
               <h4>Jamie, 16</h4>
               <span class="achievement">Saved $1,200 for a laptop</span>
@@ -189,7 +190,7 @@
         
         <div class="testimonial">
           <div class="user-info">
-            <img src="images/user-maria.jpg" alt="Maria">
+            <img src="https://via.placeholder.com/80x80/4a6fa5/ffffff?text=Maria" alt="Maria" class="testimonial-img">
             <div>
               <h4>Maria, 15</h4>
               <span class="achievement">Paid for her first car</span>
@@ -207,7 +208,7 @@
         
         <div class="testimonial">
           <div class="user-info">
-            <img src="images/user-parent.jpg" alt="Mr. Thompson">
+            <img src="https://via.placeholder.com/80x80/4a6fa5/ffffff?text=Parent" alt="Mr. Thompson" class="testimonial-img">
             <div>
               <h4>Mr. Thompson, Parent</h4>
               <span class="achievement">Father of two users</span>
@@ -222,12 +223,22 @@
             <i class="fas fa-star"></i>
           </div>
         </div>
+        
+        <div class="testimonial-controls">
+          <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+          <div class="testimonial-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
       </div>
     </section>
 
     <!-- Learning Hub Preview -->
     <section class="learning-preview">
-      <div class="learning-content">
+      <div class="learning-content animate__animated animate__fadeInLeft">
         <h2>Financial Education Made Fun</h2>
         <p>Our Learning Hub features interactive courses on:</p>
         <ul class="learning-topics">
@@ -238,19 +249,19 @@
           <li><i class="fas fa-check-circle"></i> Entrepreneurship</li>
           <li><i class="fas fa-check-circle"></i> Avoiding Scams</li>
         </ul>
-        <button onclick="location.href='learning.html'" class="btn-primary">Explore Learning Hub</button>
+        <button onclick="location.href='learning.html'" class="btn-primary pulse">Explore Learning Hub</button>
       </div>
-      <div class="learning-image">
-        <img src="images/learning-hub-preview.png" alt="Learning Hub preview">
+      <div class="learning-image animate__animated animate__fadeInRight">
+        <img src="https://via.placeholder.com/500x400/4a6fa5/ffffff?text=Learning+Hub" alt="Learning Hub preview" class="rotate-img">
       </div>
     </section>
 
     <!-- Pricing (Free) -->
     <section class="pricing-section">
-      <h2>Complete Financial Toolkit - Always Free</h2>
-      <p class="section-description">We believe financial education should be accessible to all teens</p>
+      <h2 class="animate__animated animate__fadeInUp">Complete Financial Toolkit - Always Free</h2>
+      <p class="section-description animate__animated animate__fadeInUp animate__delay-1s">We believe financial education should be accessible to all teens</p>
       
-      <div class="pricing-card">
+      <div class="pricing-card scale-up">
         <h3>GoalStone Free</h3>
         <div class="price">$0 <span>forever</span></div>
         <ul class="benefits">
@@ -261,15 +272,15 @@
           <li><i class="fas fa-check"></i> Basic rewards</li>
           <li><i class="fas fa-check"></i> Family connection</li>
         </ul>
-        <button onclick="location.href='signup.html'" class="btn-primary">Get Started Now</button>
+        <button onclick="location.href='signup.html'" class="btn-primary pulse">Get Started Now</button>
       </div>
       
-      <p class="non-profit">GoalStone is supported by grants and partnerships to keep our platform free for teens worldwide.</p>
+      <p class="non-profit animate__animated animate__fadeInUp animate__delay-1-5s">GoalStone is supported by grants and partnerships to keep our platform free for teens worldwide.</p>
     </section>
 
     <!-- FAQ Section -->
     <section class="faq-section">
-      <h2>Frequently Asked Questions</h2>
+      <h2 class="animate__animated animate__fadeInUp">Frequently Asked Questions</h2>
       
       <div class="faq-container">
         <div class="faq-item">
@@ -324,10 +335,33 @@
       </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <h2 class="animate__animated animate__fadeInUp">GoalStone By The Numbers</h2>
+      <div class="stats-container">
+        <div class="stat-item count-up">
+          <div class="stat-number" data-count="250000">0</div>
+          <div class="stat-label">Teens Empowered</div>
+        </div>
+        <div class="stat-item count-up">
+          <div class="stat-number" data-count="500">0</div>
+          <div class="stat-label">Schools Using GoalStone</div>
+        </div>
+        <div class="stat-item count-up">
+          <div class="stat-number" data-count="10000000">0</div>
+          <div class="stat-label">Dollars Saved</div>
+        </div>
+        <div class="stat-item count-up">
+          <div class="stat-number" data-count="95">0</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
       <div class="contact-container">
-        <div class="contact-info">
+        <div class="contact-info animate__animated animate__fadeInLeft">
           <h2>Get In Touch</h2>
           <p>Have questions or suggestions? We'd love to hear from you!</p>
           
@@ -343,6 +377,7 @@
               <h4>For Educators</h4>
               <a href="mailto:schools@goalstone.com">schools@goalstone.com</a>
             </div>
+          </div>
           
           <div class="social-links">
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -353,7 +388,7 @@
           </div>
         </div>
         
-        <div class="contact-form">
+        <div class="contact-form animate__animated animate__fadeInRight">
           <form id="contactForm">
             <div class="form-group">
               <label for="name">Name</label>
@@ -380,7 +415,7 @@
               <textarea id="message" name="message" rows="5" required></textarea>
             </div>
             
-            <button type="submit" class="btn-primary">Send Message</button>
+            <button type="submit" class="btn-primary pulse">Send Message</button>
           </form>
         </div>
       </div>
@@ -389,13 +424,13 @@
     <!-- Newsletter -->
     <section class="newsletter-section">
       <div class="newsletter-container">
-        <div class="newsletter-content">
+        <div class="newsletter-content animate__animated animate__fadeInLeft">
           <h3>Stay Updated</h3>
           <p>Subscribe to our monthly newsletter for financial tips, success stories, and platform updates.</p>
         </div>
-        <form class="newsletter-form">
+        <form class="newsletter-form animate__animated animate__fadeInRight">
           <input type="email" placeholder="Your email address" required>
-          <button type="submit" class="btn-secondary">Subscribe</button>
+          <button type="submit" class="btn-secondary pulse">Subscribe</button>
         </form>
       </div>
     </section>
@@ -467,5 +502,135 @@
   <button id="backToTop" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
+
+  <!-- Confetti Effect -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script>
+    // Add animations and interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const nav = document.querySelector('nav ul');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        nav.classList.toggle('show');
+        this.classList.toggle('open');
+      });
+      
+      // FAQ accordion
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector('i');
+          
+          question.classList.toggle('active');
+          answer.classList.toggle('show');
+          
+          if (question.classList.contains('active')) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+          } else {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+          }
+        });
+      });
+      
+      // Testimonial slider
+      let currentTestimonial = 0;
+      const testimonials = document.querySelectorAll('.testimonial');
+      const dots = document.querySelectorAll('.dot');
+      
+      function showTestimonial(index) {
+        testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        testimonials[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentTestimonial = index;
+      }
+      
+      document.querySelector('.testimonial-next').addEventListener('click', () => {
+        let nextIndex = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(nextIndex);
+      });
+      
+      document.querySelector('.testimonial-prev').addEventListener('click', () => {
+        let prevIndex = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(prevIndex);
+      });
+      
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showTestimonial(index));
+      });
+      
+      // Back to top button
+      const backToTopBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
+      // Count-up animation for stats
+      const statNumbers = document.querySelectorAll('.stat-number');
+      const statsSection = document.querySelector('.stats-section');
+      
+      function animateStats() {
+        const sectionPosition = statsSection.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (sectionPosition < screenPosition) {
+          statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const counter = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                clearInterval(counter);
+                stat.textContent = target.toLocaleString();
+              } else {
+                stat.textContent = Math.floor(current).toLocaleString();
+              }
+            }, 16);
+          });
+          
+          // Remove event listener after animation
+          window.removeEventListener('scroll', animateStats);
+        }
+      }
+      
+      window.addEventListener('scroll', animateStats);
+      
+      // Scroll reveal animations
+      const animateElements = document.querySelectorAll('.animate__animated');
+      
+      function scrollReveal() {
+        animateElements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+          
+          if (elementPosition < screenPosition) {
+            const animationClass = element.classList[1];
+            element.classList.add(animationClass);
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', scrollReveal);
+      scrollReveal(); // Run once on load
+    });
+  </script>
 </body>
 </html>
