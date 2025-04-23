@@ -28,7 +28,7 @@
   <!-- Main Logo -->
   <text x="200" y="80" font-family="Poppins" font-weight="700" font-size="72" 
         text-anchor="middle" fill="url(#moneyGradient)" filter="url(#softGlow)"
-        style="letter-spacing: 1.5px;">Goalstone</text>
+        style="letter-spacing: 1.5px;">GoalStone</text>
   
   <!-- Animated Shine -->
   <rect x="0" y="0" width="400" height="150" fill="url(#shineOverlay)" opacity="0.7">
